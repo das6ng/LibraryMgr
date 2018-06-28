@@ -1,0 +1,2 @@
+# LibraryMgr
+Software Engineering homework.
