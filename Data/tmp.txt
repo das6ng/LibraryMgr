@@ -1,0 +1,454 @@
+<table class="views-table cols-7" >
+        <thead>
+      <tr>
+                  <th class="views-field views-field-field-sequence" >
+            序号          </th>
+                  <th class="views-field views-field-title" >
+            题名          </th>
+                  <th class="views-field views-field-field-lr-author" >
+            著者          </th>
+                  <th class="views-field views-field-field-lr-callno" >
+            索书号          </th>
+                  <th class="views-field views-field-field-lr-publisher" >
+            出版社          </th>
+                  <th class="views-field views-field-field-lr-publishdate" >
+            出版时间          </th>
+                  <th class="views-field views-field-field-lr-lendtimes" >
+            借阅次数          </th>
+              </tr>
+    </thead>
+    <tbody>
+          <tr class="odd views-row-first">
+                  <td class="views-field views-field-field-sequence" >
+            1          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4784371">Verilog数字系统设计教程</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            夏宇闻编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN790.2 X229C3          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            北京航空航天大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            10          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            2          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b3639120">实用数字信号处理</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Steven W. Smith著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.72 S583          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            人民邮电出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2010          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            10          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            3          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b1818058">帮你学模拟电子技术基础</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            华成英主编          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN01 4=3(5)          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            高等教育出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2004          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            9          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            4          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4533742">Android编程入门很简单</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            王勇等编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 W432.1          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            清华大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2012          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            9          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            5          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4784791">轻松实现Altium Designer板级设计与数据管理</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            王正勇编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN410.2 W468          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            6          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b3649484">Altium Designer Summer 09从入门到精通</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            周冰, 李田, 胡仁喜等编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN410.2 Z752          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            机械工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2011          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            7          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b3687479">信号与系统</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            郑君里, 应启珩, 杨为理          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.6-43 Z436C3          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            高等教育出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2011          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            8          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b5055224">数字图像处理</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Rafael C. Gonzalez, Richard E. Woods, Steven L. Eddins著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.73-43 G082A2C2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2014          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            9          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b5027255">疯狂iOS讲义 上</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            李刚编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 L162A2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2014          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            10          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4631942">疯狂Android讲义</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            李刚编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 L162C2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            8          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            11          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b1853420">模拟电子技术基础</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            华成英, 童诗白主编          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN01 4=4          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            高等教育出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2006          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            12          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b2086889">半导体器件物理</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) 施敏, 伍国珏著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN303 S498          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            西安交通大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2008          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            13          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b2219610">半导体制造技术</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Michael Quirk, (美) Julian Serda著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN305 K901C2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2009          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            14          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4657940">Altium Designer 10入门与PCB设计实例</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            王建农, 王伟编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN410.2 W224          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            国防工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            15          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4304011">Altium Designer原理图与PCB设计</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            周润景, 郝媛媛编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN410.2 Z782A4          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2012          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            16          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b5027295">乐享Arduino + Android创意制作</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Mike Riley著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN6 L030          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            科学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2014          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            17          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4718352">ADS2008射频电路设计与仿真实例</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            徐兴福主编          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN710.02 X821          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            18          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4628479">信号与系统</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Alan V. Oppenheim, Alan S. Willsky, S. Hamid Nawab著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.6 A759B2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            19          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b3896635">信号与系统 (第三版) 习题解析</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            谷源涛          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.6-43 Z436C3D2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            高等教育出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2011          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            20          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4787537">数字信号处理 (MATLAB版)</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) 维纳·K·英格尔, 约翰·G·普罗克斯          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.72 Y622A2C3          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            西安交通大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            21          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b3682317">数字信号处理</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            姚天任编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.72-43 Y367C3          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            清华大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2011          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            22          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4658736">精通Matlab数字图像处理与识别</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            张铮 ... [等] 编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN911.73 Z242          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            人民邮电出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            23          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b2080718">Matlab/Simulink通信系统建模与仿真实例分析</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            邵玉斌编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN914-43 S335          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            清华大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2008          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            24          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4969465">Android应用开发深入学习实录</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            关立勋等编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 G548          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            电子工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd">
+                  <td class="views-field views-field-field-sequence" >
+            25          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4964894">精彩绝伦的Android UI设计</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            Juhani Lehtimaki著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 L026.2          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            机械工业出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2013          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="even">
+                  <td class="views-field views-field-field-sequence" >
+            26          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4407964">Android编程入门经典</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            (美) Wei-Meng Lee著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 L120.1          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            清华大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2012          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+          <tr class="odd views-row-last">
+                  <td class="views-field views-field-field-sequence" >
+            27          </td>
+                  <td class="views-field views-field-title" >
+            <a href="http://innopac.lib.tsinghua.edu.cn/record=b4533437">Android基础开发与实践</a>          </td>
+                  <td class="views-field views-field-field-lr-author" >
+            吴善财编著          </td>
+                  <td class="views-field views-field-field-lr-callno" >
+            TN929.53 W860          </td>
+                  <td class="views-field views-field-field-lr-publisher" >
+            清华大学出版社          </td>
+                  <td class="views-field views-field-field-lr-publishdate" >
+            2012          </td>
+                  <td class="views-field views-field-field-lr-lendtimes" >
+            7          </td>
+              </tr>
+      </tbody>
+</table>
