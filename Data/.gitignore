@@ -1,0 +1,5 @@
+# for python script
+__pycache__
+
+# tmp data
+tmp.txt
