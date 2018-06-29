@@ -8,37 +8,29 @@
     <package name="default" namespace="/" extends="struts-default">
     
         <interceptors>
-            <interceptor name="logincheck" class="life.dashyeah.StuInfoSys.Interceptors.LoginChecker"></interceptor>
+            <interceptor name="logincheck" class="life.dashyeah.LibraryMgr.Interceptors.LoginChecker"></interceptor>
             <interceptor-stack name="logincheckStack">
                 <interceptor-ref name="defaultStack"></interceptor-ref>
                 <interceptor-ref name="logincheck"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
         
-        <action name="login" method="login" class="life.dashyeah.StuInfoSys.Login">
+        <action name="login" method="login" class="life.dashyeah.LibraryMgr.Login">
             <result type="stream">
                 <param name="contentType">text/plain</param>
                 <param name="inputName">inputStream</param>
             </result>
         </action>
         
-        <action name="logout" method="logout" class="life.dashyeah.StuInfoSys.Login">
+        <action name="logout" method="logout" class="life.dashyeah.LibraryMgr.Login">
             <result>/login.html</result>
         </action>
         
-        <action name="index" method="index" class="life.dashyeah.StuInfoSys.Redirecter">
-            <result name="student">/index.html</result>
-            <result name="teacher">/index_admin.html</result>
+        <action name="index" method="index" class="life.dashyeah.LibraryMgr.Redirecter">
+            <result name="user">/index.html</result>
+            <result name="admin">/index_admin.html</result>
             <result name="error">/login.html</result>
             
-            <interceptor-ref name="logincheckStack"></interceptor-ref>
-        </action>
-        
-        <action name="baseinfo" method="get" class="life.dashyeah.StuInfoSys.BaseInfo">
-            <result type="stream">
-                <param name="contentType">text/plain</param>
-                <param name="inputName">inputStream</param>
-            </result>
             <interceptor-ref name="logincheckStack"></interceptor-ref>
         </action>
         
