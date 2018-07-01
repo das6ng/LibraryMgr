@@ -3,7 +3,8 @@ create table users(
 	username varchar(64) primary key,
 	password varchar(128) not null,
 	name varchar(64) default null,
-	max_rent integer default 10
+	birthdate varchar(32) default null,
+	gender varchar(8) default 'Unknown'
 );
 """
 
@@ -21,7 +22,8 @@ create table books(
 	id integer AUTO_INCREMENT primary key,
 	name varchar(512) not null,
 	author varchar(128) not null,
-	subject varchar(128) not null
+	press varchar(128) not null,
+	price double not null
 );
 """
 
@@ -37,12 +39,19 @@ create table copies(
 );
 """
 
+sql_create_syscfg_table = """
+create table syscfg(
+	config_item varchar(256) primary key,
+	config_value varchar(512) not null
+);
+"""
+
 sql_create_rentings_view = """
-create view rentings(bookid,bookname,author,username,rentdate) as
-	select books.id,books.name,books.author,copies.username,copies.rentdate
+create view rentings(bookid,copyid,bookname,author,press,price,username,rentdate) as
+	select books.id,copies.id,books.name,books.author,press,books.price,copies.username,copies.rentdate
 	from books,copies where books.id=bookid
 ;
 """
 
 sql_drop_views = "drop view if exists rentings;"
-sql_drop_tables = "drop table if exists copies,books,admins,users;"
+sql_drop_tables = "drop table if exists copies,books,admins,users,syscfg;"

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+    
+        <interceptors>
+            <interceptor name="logincheck" class="life.dashyeah.LibMgr.Interceptor.LoginChecker"></interceptor>
+            <interceptor name="admincheck" class="life.dashyeah.LibMgr.Interceptor.AdminChecker"></interceptor>
+            <interceptor-stack name="logincheckStack">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="logincheck"></interceptor-ref>
+            </interceptor-stack>
+            <interceptor-stack name="admincheckStack">
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+                <interceptor-ref name="admincheck"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        
+        <action name="login" method="login" class="life.dashyeah.LibMgr.Login">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+        </action>
+        
+        <action name="logout" method="logout" class="life.dashyeah.LibMgr.Login">
+            <result>/login.html</result>
+        </action>
+        
+        <action name="index" method="index" class="life.dashyeah.LibMgr.Redirecter">
+            <result name="user">/reader.html</result>
+            <result name="admin">/admin.html</result>
+            <result name="error">/login.html</result>
+            
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="rent" method="rent" class="life.dashyeah.LibMgr.UserAction">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="restore" method="restore" class="life.dashyeah.LibMgr.UserAction">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="rentlist" method="rentingList" class="life.dashyeah.LibMgr.UserAction">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="userinfo" method="userinfo" class="life.dashyeah.LibMgr.UserAction">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="searchbook" method="searchBook" class="life.dashyeah.LibMgr.UserAction">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="logincheckStack"></interceptor-ref>
+        </action>
+        
+        
+        
+        
+        <action name="admininfo" method="userinfo" class="life.dashyeah.LibMgr.BookAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="addbook" method="addBook" class="life.dashyeah.LibMgr.BookAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="deletebook" method="deleteBook" class="life.dashyeah.LibMgr.BookAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="addcopy" method="addCopy" class="life.dashyeah.LibMgr.BookAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="deletecopy" method="deleteCopy" class="life.dashyeah.LibMgr.BookAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="adduser" method="addUser" class="life.dashyeah.LibMgr.UserAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="deleteuser" method="deleteUser" class="life.dashyeah.LibMgr.UserAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="setmaxdays" method="setMaxdays" class="life.dashyeah.LibMgr.ConfigAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="setmaxrent" method="setMaxrent" class="life.dashyeah.LibMgr.ConfigAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+        <action name="setcostrate" method="setCostRate" class="life.dashyeah.LibMgr.ConfigAdmin">
+            <result type="stream">
+                <param name="contentType">text/plain</param>
+                <param name="inputName">inputStream</param>
+            </result>
+            <interceptor-ref name="admincheckStack"></interceptor-ref>
+        </action>
+        
+    </package>
+    
+</struts>

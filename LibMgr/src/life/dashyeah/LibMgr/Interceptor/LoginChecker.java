@@ -1,4 +1,4 @@
-package life.dashyeah.LibraryMgr.Interceptors;
+package life.dashyeah.LibMgr.Interceptor;
 
 import javax.servlet.http.HttpSession;
 

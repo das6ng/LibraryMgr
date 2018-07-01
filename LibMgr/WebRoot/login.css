@@ -1,0 +1,122 @@
+body {
+    background-image: url("lbground.jpg");;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+
+#login_frame {
+    width: 400px;
+    height: 260px;
+    padding: 13px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+
+    background-color: rgba(240, 255, 255, 0.5);
+
+    border-radius: 10px;
+    text-align: center;
+}
+
+form p > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#image_logo {
+    height: 90px;
+    width: 90px;
+    margin: 10px;
+    float:left;
+    background-image: url("xidian.jpg");
+    background-size: 90px 90px;
+}
+
+
+.label_input {
+    font-size: 14px;
+    font-family: 宋体;
+
+    width: 65px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+
+    color: white;
+    background-color: #3CD8FF;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.text_field {
+    width: 278px;
+    height: 27px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 0;
+    text-indent: 5px;
+}
+
+#btn_login {
+    font-size: 14px;
+    font-family: 宋体;
+
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+
+    color: white;
+    background-color: #3BD9FF;
+    border-radius: 6px;
+    border: 0;
+
+    position: absolute;
+    left: 35%;
+}
+
+#forget_pwd {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    float: right;
+    top: 5px;
+    margin-right: 10px;
+}
+
+#forget_pwd:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+#login_control {
+    padding: 0 28px;
+}
+
+#btn_login:hover{
+    background-color: dodgerblue;
+    cursor: pointer;
+}
+
+h1{
+    font-family: 宋体;
+    font-weight: bold;
+}
+
+
+#warn{
+    color: red;
+    display: none;
+}
+
+#select{
+    position: absolute;
+    left: 40px;
+    display: inline-block;
+    font-size: 20px;
+}

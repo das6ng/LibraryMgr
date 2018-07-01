@@ -41,7 +41,8 @@ class NamePicker(object):
         months = ['01','02','03','04','05','06','07','08','09','10','11','12']
         birth = str(random.randint(start,end))
         birth += random.sample(months, 1)[0]
-        birth += random.sample(months, 1)[0]
+        months.extend(list(range(13,29)))
+        birth += str(random.sample(months, 1)[0])
         
         return birth
     

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body{margin: 0;padding: 0;background-color: rgb(243,243,243);}
+        #head{background-color: rgb(143,27,27);height: 83px;width: 100%;margin: 0;padding: 0;}
+        #logo{background-image: url("logo.png");height: 80px;width: 359px;left:500px;position: absolute;}
+        #exit{text-decoration: none;color: white;position: absolute;right: 400px;top:30px;}
+        #exit:hover{color: blue;}
+        #copyright{position: fixed;bottom: 20px;background-color: rgb(143,27,27);height: 40px;width: 100%;}
+        #copyright p{color: white;font-size: small;position: absolute;left: 400px;}
+        #service{height: 810px;border-right: 1px solid rgb(218,218,218);width: 19%;float:left;top: 83px;}
+        #service li{padding:10px 0;list-style: none;border-bottom: 1px solid rgb(218,218,218);text-align: center;}
+        #service li.h:hover{background-color: white;cursor: pointer;}
+        #service ul{margin: 0;padding: 0;}
+        #list{font-size: 20px;font-weight: bold;}
+        .btn{width: 120px;  height: 28px;color: white;background-color: #3BD9FF;border-radius: 6px;border: 0;}
+        .info{width:80%;float:right;top: 150px;left: 500px;}
+        .search{width: 278px;border: 0;text-indent: 5px;height: 27px;border-radius: 6px;margin: 10px;}
+        .btn:hover{background-color: dodgerblue;cursor: pointer;}
+        td:hover{background-color:white;}
+        table{width:1000px;margin: 10px;}
+        td{text-align: center;}
+        #my,#return{display: none;}
+        caption{margin: 10px;font-size: 30px;font-family: 宋体;font-weight: bold;}
+        #bc{background-image: url("bc.png");height: 277px;width: 1218px;left: 350px;position:absolute;bottom:100px;}
+    </style>
+    <title>西电图书馆</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+    <div id="head">
+        <div id="logo"></div>
+        <a id="exit" href="logout">安全退出</a>
+    </div>
+    <div>
+    <div id="service">
+        <ul>
+            <li id="list">服务列表</li>
+            <li class="h" onclick="show(1)">借书</li>
+            <li class="h" onclick="show(2)">还书</li>
+            <li class="h" onclick="show(3)">我的信息</li>
+        </ul>
+    </div>
+    
+    <div id="borrow" class="info">
+        <input type="text" class="search" id="book_name"/>
+        <button class="btn" onclick="find()">查询图书</button>
+        <br/>
+        <table border="1" cellpadding="4" id="book_list">
+            <tr>
+                <th>编号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>单价（元）</th>
+                <th>是否已借出</th>
+                <th>操作</th>
+            </tr>
+        </table>
+    </div>
+    <div id="return" class="info">
+        <table border="1" cellpadding="4" id="my_books">
+            <caption>我的图书</caption>
+            <tr>
+                <th>编号</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>单价（元）</th>
+                <th>借书日期</th>
+                <th>操作</th>
+            </tr>
+        </table>
+    </div>
+    <div id="my" class="info">
+        <table border="1" cellpadding="4" id="my_info">
+            <caption>我的信息</caption>
+            <tr>
+                <th>用户名</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>出生年月</th>
+            </tr>
+        </table>
+    </div>
+    </div>
+    
+<div id="copyright">
+    <p>© Copyright 西安电子科技大学 2017 板船所有</p>
+</div>
+</body>
+
+<script type="text/javascript">
+    function find(){
+        var bookname=$("#book_name").val();
+        var request={
+            "bookname":bookname
+        };
+        //alert($("#book_name").val());
+        $.ajax({
+            type:"POST",
+            url:"searchbook?name="+$("#book_name").val(),
+            data:{},
+            dataType :"json",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                	//alert("OK!");
+                    $("#book_list tr:gt(0)").remove();
+                    //alert(JSON.stringify(data["result"]));
+                    $.each(data["result"],function(n,v) {
+                        var newRow = "<tr><td>"+v["copyid"]+
+                                "</td><td>"+v["bookname"]+
+                                "</td><td>"+v["author"]+
+                                "</td><td>"+v["press"]+
+                                "</td><td>"+v["price"]+
+                                "</td><td>"+v["rent"]+
+                                "</td><td><a href=\"javascript:borrow("+v["copyid"]+")\">借书</a></td></tr>";
+                        //alert(newRow);	
+                        $("#book_list tr:last").after(newRow);
+                    });
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function borrow(copyid){
+        var request={
+            "copyid":copyid
+        };
+        //alert(copyid);
+        $.ajax({
+            type:"POST",
+            url:"rent?copyid="+copyid,
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function back(copyid){
+        var request={
+            "copyid":copyid
+        }
+        $.ajax({
+            type:"POST",
+            url:"restore?copyid="+copyid,
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function show_books(){
+        $.ajax({
+            type:"POST",
+            url:"rentlist",
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    $("#my_books tr:gt(0)").remove();
+                    $.each(data["rentlist"],function(n,v) {
+                        var newRow = "<tr><td>"+v["copyid"]+
+                                "</td><td>"+v["bookname"]+
+                                "</td><td>"+v["author"]+
+                                "</td><td>"+v["press"]+
+                                "</td><td>"+v["price"]+
+                                "</td><td>"+v["rentdate"]+
+                                "</td><td><a href=\"javascript:back("+v["copyid"]+")\">还书</a></td></tr>";
+                        //alert(newRow);
+                        $("#my_books tr:last").after(newRow);
+                    });
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function show_info(){
+    	var gender = {"F":"女", "M":"男"};
+        $.ajax({
+            type:"POST",
+            url:"userinfo",
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                	//alert(JSON.stringify(data));
+                    $("#my_info tr:gt(0)").remove();
+                        var newRow = "<tr><td>"+data["username"]+
+                                "</td><td>"+data["name"]+
+                                "</td><td>"+gender[data["gender"]]+
+                                "</td><td>"+data["birthday"]+
+                                "</td></tr>";
+                        //alert(newRow);
+                        $("#my_info tr:last").after(newRow);
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function show(n){
+        if(n==1){
+            $("#borrow").show();
+            $("#return,#my").hide();
+        }
+        else if(n==2){
+            $("#return").show();
+            $("#borrow,#my").hide();
+            show_books();
+        }
+        else {
+            $("#my").show();
+            $("#borrow,#return").hide();
+            show_info();
+        }
+    }
+</script>
+</html>

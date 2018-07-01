@@ -2,9 +2,9 @@ from connectDB import connectDB
 from NamePicker import NamePicker
 from random import randint
 
-sql_insert_user = "insert into users(username,password,name) values('%s','%s','%s');"
+sql_insert_user = "insert into users(username,password,name,birthdate,gender) values('%s','%s','%s','%s','%s');"
 sql_insert_admin = "insert into admins values('%s','%s','%s','%s');"
-sql_insert_book = "insert into books(name,author,subject) values('%s','%s','%s');"
+sql_insert_book = "insert into books(name,author,press,price) values('%s','%s','%s','%s');"
 sql_insert_copy = "insert into copies(bookid) values(%s);"
 
 np = NamePicker()
@@ -18,7 +18,9 @@ def insertUsers(conn):
 				username = str(year) + str(month) + str(no_)
 				password = '123456'
 				name = np.pickName()
-				user = (username,password,name)
+				birthdate = np.pickBirth()
+				gender = np.pickGender()
+				user = (username,password,name,birthdate,gender)
 				try:
 					cursor.execute(sql_insert_user % user)
 					print(user)
@@ -51,23 +53,16 @@ def insertBooks(conn):
 	cursor = conn.cursor()
 	count = 0
 	with open('Books.txt',mode='r',encoding='UTF-8') as file:
-		books = []
 		for line in file:
 			line = line[:-1]
 			if line != '':
-				if line[0] != '#':
-					books.append(line.split('|'))
-				elif line[0] == '#':
-					subject = line.split('#')[-1]
-					for book in books:
-						book = (book[0],book[1],subject)
-						print(book)
-						try:
-							cursor.execute(sql_insert_book % book)
-							count += 1
-						except Exception as e:
-							print(e)
-					books = []
+				book = tuple(line.split('|')+[randint(20,100)])
+				try:
+					cursor.execute(sql_insert_book % book)
+					print(book)
+					count += 1
+				except Exception as e:
+					print(e)
 	conn.commit()
 	return count
 	
@@ -94,6 +89,7 @@ if __name__ == "__main__":
 	a = insertAdmins(conn)
 	b = insertBooks(conn)
 	c = insertCopies(conn)
+	
 	conn.close()
 	
 	print("\n\nTotal: %d users, %d admins, %d books, %d copies" % (u,a,b,c))

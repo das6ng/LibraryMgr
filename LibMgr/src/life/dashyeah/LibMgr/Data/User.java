@@ -1,11 +1,14 @@
-package life.dashyeah.LibraryMgr.Data;
+package life.dashyeah.LibMgr.Data;
 
 public class User {
 	private String username;
 	private String password;
 	private String role;
+	
 	private String name;
-	private String maxRent = "10";
+	private String birthdate;
+	private String gender;
+	
 	
 	public String getUsername() {
 		return username;
@@ -31,21 +34,28 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getMaxRent() {
-		return maxRent;
+	public String getBirthdate() {
+		return birthdate;
 	}
-	public void setMaxRent(String maxRent) {
-		this.maxRent = maxRent;
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
-	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String toString() {
 		return username+" "+password+" "+role;
 	}
+	
 	public String toSQLString() {
 		return "('"+username
 			 + "','"+password
 			 + "','"+name
-			 + "',"+maxRent
-			 + ")";
+			 + "','"+birthdate
+			 + "','"+gender
+			 + "')";
 	}
 }

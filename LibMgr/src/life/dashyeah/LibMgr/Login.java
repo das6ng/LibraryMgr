@@ -1,4 +1,4 @@
-package life.dashyeah.LibraryMgr;
+package life.dashyeah.LibMgr;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -15,7 +15,8 @@ import org.json.simple.JSONObject;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-import life.dashyeah.LibraryMgr.Data.User;
+import life.dashyeah.LibMgr.Data.User;
+import life.dashyeah.LibMgr.Data.Role;
 
 @SuppressWarnings("unchecked")
 public class Login extends ActionSupport implements ModelDriven<User>,SessionAware{
@@ -45,14 +46,19 @@ public class Login extends ActionSupport implements ModelDriven<User>,SessionAwa
 		
 		String role = user.getRole();
 		String sql = "";
-		switch(role) {
-		case "user":
-			sql = "select username,password from users where username='"+user.getUsername()+"';";
-			break;
-		case "admin":
-			sql = "select username,password from admins where username='"+user.getUsername()+"';";
-			break;
-		default:
+		if(role != null)
+			switch(role) {
+			case Role.ROLE_USER:
+				sql = "select username,password from users where username='"+
+			           user.getUsername()+"';";
+				break;
+			case Role.ROLE_ADMIN:
+				sql = "select username,password from admins where username='"+
+			           user.getUsername()+"';";
+				break;
+			default:
+			}
+		else {
 			result.put("status", "ERROR");
 			result.put("info", "wrong role type!");
 		}

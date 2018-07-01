@@ -1,4 +1,4 @@
-package life.dashyeah.LibraryMgr;
+package life.dashyeah.LibMgr;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

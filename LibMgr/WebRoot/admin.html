@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body{margin: 0;padding: 0;background-color: rgb(243,243,243);}
+        #head{background-color: rgb(143,27,27);height: 83px;width: 100%;margin: 0;padding: 0;}
+        #logo{background-image: url("logo.png");height: 80px;width: 359px;left:500px;position: absolute;}
+        #exit{text-decoration: none;color: white;position: absolute;right: 400px;top:30px;}
+        #exit:hover{color: blue;}
+        #copyright{position: absolute;bottom: 20px;background-color: rgb(143,27,27);height: 40px;width: 100%;}
+        #copyright p{color: white;font-size: small;position: absolute;left: 400px;}
+        #service{height: 810px;border-right: 1px solid rgb(218,218,218);width: 300px;position: absolute;top: 83px;}
+        #service li{padding:10px 0;list-style: none;border-bottom: 1px solid rgb(218,218,218);text-align: center;}
+        #service li.h:hover{background-color: white;cursor: pointer;}
+        #service ul{margin: 0;padding: 0;}
+        #list{font-size: 20px;font-weight: bold;}
+        .btn{width: 120px;  height: 28px;color: white;background-color: #3BD9FF;border-radius: 6px;border: 0;margin: 0 110px;}
+        .info{width: 800px;position: absolute;top: 150px;left: 700px;}
+        .search{width: 278px;border: 0;text-indent: 5px;height: 27px;border-radius: 6px;margin: 10px;}
+        .btn:hover{background-color: dodgerblue;cursor: pointer;}
+        td:hover{background-color:white;}
+        table{width:700px;margin: 10px;}
+        td{text-align: center;}
+        #my,#return{display: none;}
+        caption{margin: 10px;font-size: 30px;font-family: 宋体;font-weight: bold;}
+        #bc{background-image: url("bc.png");height: 277px;width: 1218px;left: 350px;position:absolute;bottom:100px;}
+        .label_input {  font-size: 14px;  font-family: 宋体;  width: 65px;  height: 28px;  line-height: 28px;  text-align: center;
+            color: white;  background-color: #3CD8FF;  border-top-left-radius: 5px;  border-bottom-left-radius: 5px; }
+        label{display: inline-block;}
+        .text_field {width:278px;height:27px;border-top-right-radius:5px;border-bottom-right-radius:5px;border:0;text-indent: 5px;}
+    </style>
+    <title>西电图书馆</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<div id="head">
+    <div id="logo"></div>
+    <a id="exit" href="logout">安全退出</a>
+</div>
+<div id="service">
+    <ul>
+        <li id="list">服务列表</li>
+        <li class="h" onclick="show(1)">图书管理</li>
+        <li class="h" onclick="show(2)">用户管理</li>
+        <li class="h" onclick="show(3)">借书设置</li>
+    </ul>
+</div>
+<div id="borrow" class="info">
+    <div>
+        <p><label class="label_input">书名</label><input type="text" id="book_name" class="text_field"/></p>
+        <p><label class="label_input">作者</label><input type="text" id="author" class="text_field"/></p>
+        <p><label class="label_input">出版社</label><input type="text" id="press" class="text_field"/></p>
+        <p><label class="label_input">单价</label><input type="text" id="price" class="text_field"/></p>
+        <p><label class="label_input">数量</label><input type="text" id="amount" class="text_field"/></p>
+        <button class="btn" onclick="add_book()">增加图书</button>
+    </div>
+    <div>
+        <p><label class="label_input">图书编号</label><input type="text" id="book_id" class="text_field"/></p>
+        <button class="btn" onclick="del_book()">删除图书</button>
+    </div>
+</div>
+<div id="return" class="info">
+    <div>
+        <p><label class="label_input">用户名</label><input type="text" id="username" class="text_field"/></p>
+        <p><label class="label_input">密码</label><input type="text" id="password" class="text_field"/></p>
+        <p><label class="label_input">姓名</label><input type="text" id="name" class="text_field"/></p>
+        <p><label class="label_input">生日</label><input type="date" id="birthdate" class="text_field"/></p>
+        <p><label class="label_input">性别</label><select id="gender" class="text_field">
+                    <option value="M">男</option>
+                    <option value="F">女</option></select></p>
+        <button class="btn" onclick="add_user()">增加用户</button>
+    </div>
+    <div>
+        <p><label class="label_input">用户名</label><input type="text" id="del_username" class="text_field"/></p>
+        <button class="btn" onclick="del_user()">删除用户</button>
+    </div>
+</div>
+<div id="my" class="info">
+    <p><label>设置借书上限（本）：</label><input type="text" id="limit_borrow" class="text_field"/></p>
+    <button class="btn" onclick="limit()">提交</button>
+    <p><label>设置最长借书时间（天）：</label><input type="text" id="limit_days" class="text_field"/></p>
+    <button class="btn" onclick="max_time()">提交</button>
+    <p><label>设置惩罚比例：</label><input type="text" id="limit_costrate" class="text_field"/></p>
+    <button class="btn" onclick="punish()">提交</button>
+</div>
+<div id="copyright">
+    <p>© Copyright 西安电子科技大学 2017 板船所有</p>
+</div>
+</body>
+<script type="text/javascript">
+    function add_book(){
+    	var param = "name="+$("#book_name").val()+
+    	            "&author="+$("#author").val()+
+    	            "&press="+$("#press").val()+
+    	            "&copies="+$("#amount").val()+
+    	            "&price="+$("#price").val();
+    	//alert(param);
+    	$.ajax({
+            type:"POST",
+            url:"addbook?"+param,
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function del_book(){
+    	$.ajax({
+            type:"POST",
+            url:"deletebook?bookid="+$("#book_id").val(),
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function add_user(){
+		var param = "username="+$("#username").val()+
+		            "&password="+$("#password").val()+
+		            "&name="+$("#name").val()+
+		            "&birthdate="+$("#birthdate").val()+
+		            "&gender="+$("#gender").val();
+		alert(param);
+    	$.ajax({
+            type:"POST",
+            url:"adduser?"+param,
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function del_user(){
+    	$.ajax({
+            type:"POST",
+            url:"deleteuser?username="+$("#del_username").val(),
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function limit(){
+    	$.ajax({
+            type:"POST",
+            url:"setmaxrent?maxrent="+$("#limit_borrow").val(),
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function max_time(){
+    	$.ajax({
+            type:"POST",
+            url:"setmaxdays?maxdays="+$("#limit_days").val(),
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function punish(){
+    	$.ajax({
+            type:"POST",
+            url:"setcostrate?costrate="+$("#limit_costrate").val(),
+            data:{},
+            dataType :"json",
+            contentType:"plain/text",
+            cache:false,
+            success:function(data){
+                if(data["status"]=="OK"){
+                    alert("操作成功！");
+                }else{
+                    alert("操作失败！请重试");
+                }
+            },
+            error:function(xhr){
+                alert("操作失败！请重试");
+            }
+        })
+    }
+    function show(n){
+        if(n==1){
+            $("#borrow").show();
+            $("#return,#my").hide();
+        }
+        else if(n==2){
+            $("#return").show();
+            $("#borrow,#my").hide();
+        }
+        else {
+            $("#my").show();
+            $("#borrow,#return").hide();
+        }
+    }
+</script>
+</html>
