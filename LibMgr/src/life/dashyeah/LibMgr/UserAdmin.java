@@ -14,21 +14,40 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import life.dashyeah.LibMgr.Data.User;
 
+/**
+ * Library management system administrator util:
+ * user administration.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 public class UserAdmin extends ActionSupport implements ModelDriven<User>{
 	/**
 	 * default UID
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * struts2 return data stream
+	 */
 	private InputStream inputStream;
 	
 	/**
-	 * receiving data.
+	 * Receiving data from client.<br>
+	 * this is set by {@link com.opensymphony.xwork2.ModelDriven}
 	 */
 	private User newUser = new User();
 	
+	/**
+	 * result data JSONObject
+	 */
 	private JSONObject result = new JSONObject();
 	
+	/**
+	 * Add a user to the system.
+	 * parameter {@link #newUser}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	@SuppressWarnings("unchecked")
 	public String addUser() {
 		result.clear();
@@ -56,7 +75,12 @@ public class UserAdmin extends ActionSupport implements ModelDriven<User>{
 		inputStream = new ByteArrayInputStream(re.getBytes(StandardCharsets.UTF_8));
 	    return SUCCESS;
 	}
-
+	
+	/**
+	 * Delete a user from the system.
+	 * parameter username is in {@link #newUser}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	@SuppressWarnings("unchecked")
 	public String deleteUser() {
 		result.clear();
@@ -83,6 +107,11 @@ public class UserAdmin extends ActionSupport implements ModelDriven<User>{
 	    return SUCCESS;
 	}
 	
+	/**
+	 * To find out if a user exists.
+	 * @param username
+	 * @return true  yes <br>false  no
+	 */
 	private boolean existUser(String username) {
 		Connection conn = DBConn.getConn();
 		String sql = "select username from users where username='"+username+"'";
@@ -99,6 +128,10 @@ public class UserAdmin extends ActionSupport implements ModelDriven<User>{
 		return flag;
 	}
 	
+	/**
+	 * 
+	 * @return result stream to struts framework
+	 */
 	public InputStream getInputStream() {
 	    return inputStream;
 	}

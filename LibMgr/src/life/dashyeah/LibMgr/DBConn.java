@@ -4,8 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Provide specified database connection
+ * 
+ * @author Dash Wong
+ *
+ */
 public class DBConn {
 	
+	/**
+	 * @return Database connection
+	 */
 	private static Connection connectDB() {
 		Connection conn = null;
 		try {
@@ -28,6 +37,9 @@ public class DBConn {
 		return conn;
 	}
 	
+	/**
+	 * @return Database connection
+	 */
 	public static Connection getConn() {
 		return connectDB();
 	}

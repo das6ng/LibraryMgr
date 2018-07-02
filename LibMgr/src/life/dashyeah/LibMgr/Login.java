@@ -18,6 +18,13 @@ import com.opensymphony.xwork2.ModelDriven;
 import life.dashyeah.LibMgr.Data.User;
 import life.dashyeah.LibMgr.Data.Role;
 
+/**
+ * Library management system util:
+ * handle login/logout request.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 @SuppressWarnings("unchecked")
 public class Login extends ActionSupport implements ModelDriven<User>,SessionAware{
 	/**
@@ -25,19 +32,39 @@ public class Login extends ActionSupport implements ModelDriven<User>,SessionAwa
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * struts2 return data stream
+	 */
 	private InputStream inputStream;
 	
+	/**
+	 * database connection
+	 */
 	private Connection conn = null;
 	
+	/**
+	 * HTTP session info
+	 */
 	private SessionMap<String,Object> session;
 	
 	/**
-	 * receiving data.
+	 * Receiving data from client.<br>
+	 * this is set by {@link com.opensymphony.xwork2.ModelDriven}
 	 */
 	private User user = new User();
 	
+	/**
+	 * result data JSONObject
+	 */
 	private JSONObject result = new JSONObject();
-
+	
+	/**
+	 * process login request<br>
+	 * <br>
+	 * parameter {@link #user}
+	 * 
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String login() {
 		result.clear();
 		System.out.print("[MSG] login: ");
@@ -98,6 +125,10 @@ public class Login extends ActionSupport implements ModelDriven<User>,SessionAwa
 	    return SUCCESS;
 	}
 	
+	/**
+	 * process logout request.
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String logout() {
 		result.clear();
 		System.out.println("[MSG] logout -- user: "+session.get("user"));
@@ -118,6 +149,10 @@ public class Login extends ActionSupport implements ModelDriven<User>,SessionAwa
 		session = (SessionMap<String, Object>)sess;
 	}
 	
+	/**
+	 * 
+	 * @return result stream to struts framework
+	 */
 	public InputStream getInputStream() {
 	    return inputStream;
 	}

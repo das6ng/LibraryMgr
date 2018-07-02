@@ -1,14 +1,38 @@
 package life.dashyeah.LibMgr.Data;
 
+/**
+ * encapsulated user information
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 public class User {
+	/**
+	 * username
+	 */
 	private String username;
+	/**
+	 * password
+	 */
 	private String password;
+	/**
+	 * user's role
+	 * @see {@link life.dashyeah.LibMgr.Data.Role}
+	 */
 	private String role;
 	
+	/**
+	 * user's name.
+	 */
 	private String name;
+	/**
+	 * user's birthday.
+	 */
 	private String birthdate;
+	/**
+	 * user's gender.
+	 */
 	private String gender;
-	
 	
 	public String getUsername() {
 		return username;
@@ -50,6 +74,10 @@ public class User {
 		return username+" "+password+" "+role;
 	}
 	
+	/**
+	 * get SQL String of the user.
+	 * @return SQL String.
+	 */
 	public String toSQLString() {
 		return "('"+username
 			 + "','"+password

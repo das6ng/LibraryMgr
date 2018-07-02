@@ -9,15 +9,31 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import life.dashyeah.LibMgr.Data.Role;
 
+/**
+ * Library management system util:
+ * redirect users to their own home page.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 public class Redirecter extends ActionSupport implements SessionAware {
 
 	/**
-	 * 
+	 * default UID
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * HTTP session info
+	 */
 	private SessionMap<String,Object> session;
 	
+	/**
+	 * redirecting action
+	 * @return {@link life.dashyeah.LibMgr.Data.Role} Role type String.
+	 * <br>
+	 * "error" if someone has no role.
+	 */
 	public String index() {
 		String role = (String) session.get("role");
 		if(Role.ROLE_USER.equals(role)) {

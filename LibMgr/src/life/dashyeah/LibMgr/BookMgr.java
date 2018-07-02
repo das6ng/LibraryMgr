@@ -9,14 +9,26 @@ import org.json.simple.JSONObject;
 
 import life.dashyeah.LibMgr.Data.Book;
 
+
+/**
+ * Library management system helper util:
+ * book related.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 public abstract class BookMgr {
-	public static int MAX_RENTING_DAYS = 30;
-	
 	private BookMgr() {}
 	
-	public static boolean existBook(String string) {
+	/**
+	 * To find out if a book exists.
+	 * 
+	 * @param bookid specified book's id
+	 * @return true  yes <br>false  no
+	 */
+	public static boolean existBook(String bookid) {
 		Connection conn = DBConn.getConn();
-		String sql = "select id from books where id="+string;
+		String sql = "select id from books where id="+bookid;
 		boolean flag = false;
 		
 		System.out.println("  SQL: "+sql);
@@ -30,6 +42,12 @@ public abstract class BookMgr {
 		return flag;
 	}
 	
+	/**
+	 *  To find out if there is any copy of a book.
+	 * 
+	 * @param bookid specified book's id
+	 * @return true  yes <br>false  no
+	 */
 	public static boolean hasCopy(String bookid) {
 		Connection conn = DBConn.getConn();
 		String sql = "select id from copies where bookid="+bookid;
@@ -46,6 +64,12 @@ public abstract class BookMgr {
 		return flag;
 	}
 	
+	/**
+	 * To find out if a copy exists.
+	 * 
+	 * @param copyid specified copy's id
+	 * @return true  yes <br>false  no
+	 */
 	public static boolean existCopy(String copyid) {
 		Connection conn = DBConn.getConn();
 		String sql = "select id from copies where id="+copyid;
@@ -62,6 +86,12 @@ public abstract class BookMgr {
 		return flag;
 	}
 	
+	/**
+	 * Add a book to database.
+	 * 
+	 * @param book information of the book.
+	 * @return true successful <br>false failed
+	 */
 	public static boolean addBook(Book book) {
 		Connection conn = DBConn.getConn();
 		String sql = "insert into books(name,author,press,price) values"+book.toSQLString();
@@ -82,6 +112,12 @@ public abstract class BookMgr {
 		return false;
 	}
 	
+	/**
+	 * delete a book and all its copies from database.
+	 * 
+	 * @param bookid specified book's id
+	 * @return true successful <br>false failed
+	 */
 	public static boolean deleteBook(String bookid) {
 		//if(hasCopy(bookid)) return false;
 		
@@ -100,6 +136,13 @@ public abstract class BookMgr {
 		return false;
 	}
 	
+	/**
+	 * Add copy of a book.
+	 * 
+	 * @param bookid specified book's id
+	 * @param count amount of copies.
+	 * @return true successful <br>false failed
+	 */
 	public static boolean addCopy(String bookid, int count) {
 		Connection conn = DBConn.getConn();
 		String sql = "insert into copies(bookid) values("+bookid+")";
@@ -116,6 +159,12 @@ public abstract class BookMgr {
 		return false;
 	}
 	
+	/**
+	 * delete a copy from database.
+	 * 
+	 * @param copyid specified copy's id.
+	 * @return true successful <br>false failed
+	 */
 	public static boolean deleteCopy(String copyid) {
 		if(!existCopy(copyid)) return true;
 
@@ -133,6 +182,12 @@ public abstract class BookMgr {
 		return false;
 	}
 	
+	/**
+	 * To find out if a copy is borrowed by someone.
+	 * 
+	 * @param copyid specified copy's id
+	 * @return true yes <br>false no
+	 */
 	public static boolean isRent(String copyid) {
 		Connection conn = DBConn.getConn();
 		String sql = "select username from copies where id="+copyid;
@@ -150,6 +205,12 @@ public abstract class BookMgr {
 		return false;
 	}
 	
+	/**
+	 * To get a configuration's value of the system.
+	 * 
+	 * @param key configuration name
+	 * @return configuration value
+	 */
 	public static String getConfig(String key) {
 		Connection conn = DBConn.getConn();
 		String sql = "select config_value from syscfg where config_item='"+key+"'";
@@ -166,6 +227,12 @@ public abstract class BookMgr {
 		return "";
 	}
 	
+	/**
+	 * search books in database which name contains any of the keywords.
+	 * 
+	 * @param key keywords, using ' ' to separate more one keyword.
+	 * @return a JSONArray contains all results.
+	 */
 	@SuppressWarnings("unchecked")
 	public static JSONArray searchBook(String key) {
 		Connection conn = DBConn.getConn();

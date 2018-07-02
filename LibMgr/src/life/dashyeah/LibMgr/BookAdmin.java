@@ -17,6 +17,13 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import life.dashyeah.LibMgr.Data.Book;
 
+/**
+ * Library management system administrator util:
+ * book administration.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 @SuppressWarnings("unchecked")
 public class BookAdmin extends ActionSupport implements ModelDriven<Book>,SessionAware{
 	/**
@@ -24,19 +31,36 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * struts2 return data stream
+	 */
 	private InputStream inputStream;
 	
+	/**
+	 * database connection
+	 */
 	private Connection conn = null;
 	
+	/**
+	 * Http session info
+	 */
 	private SessionMap<String,Object> session;
 	
 	/**
-	 * receiving data.
+	 * Receiving data from client.<br>
+	 * this is set by {@link com.opensymphony.xwork2.ModelDriven}
 	 */
 	private Book book = new Book();
 	
+	/**
+	 * result data JSONObject
+	 */
 	private JSONObject result = new JSONObject();
 	
+	/**
+	 * Get user's base information
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String userinfo() {
 		result.clear();
 		System.out.print("[MSG] user: ");
@@ -67,6 +91,11 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 	    return SUCCESS;
 	}
 	
+	/**
+	 * Delete a book from database by <code>bookid</code>
+	 * parameter bookid, required parameter is in {@link #book}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String deleteBook() {
 		result.clear();
 		System.out.print("[MSG] delete book: ");
@@ -84,7 +113,13 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 		inputStream = new ByteArrayInputStream(re.getBytes(StandardCharsets.UTF_8));
 	    return SUCCESS;
 	}
-
+	
+	/**
+	 * Add a book to database
+	 * Required parameter {@link #book}
+	 * 
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String addBook() {
 		result.clear();
 		System.out.print("[MSG] add book: ");
@@ -101,6 +136,12 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 	    return SUCCESS;
 	}
 	
+	/**
+	 * Add copies of a book
+	 * Required parameter are in {@link #book}
+	 * 
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String addCopy() {
 		result.clear();
 		System.out.print("[MSG] restore: ");
@@ -117,6 +158,12 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 		return SUCCESS;
 	}
 	
+	/**
+	 * Delete copies of a book
+	 * Required parameter are in {@link #book}
+	 * 
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String deleteCopy() {
 		result.clear();
 		System.out.print("[MSG] restore: ");
@@ -132,12 +179,16 @@ public class BookAdmin extends ActionSupport implements ModelDriven<Book>,Sessio
 		inputStream = new ByteArrayInputStream(re.getBytes(StandardCharsets.UTF_8));
 		return SUCCESS;
 	}
-
+	
 	@Override
 	public void setSession(Map<String, Object> sess) {
 		session = (SessionMap<String, Object>)sess;
 	}
 	
+	/**
+	 * 
+	 * @return result stream to struts framework
+	 */
 	public InputStream getInputStream() {
 	    return inputStream;
 	}

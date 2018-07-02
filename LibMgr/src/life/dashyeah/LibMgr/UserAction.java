@@ -22,6 +22,13 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import life.dashyeah.LibMgr.Data.Book;
 
+/**
+ * Library management system user util:
+ * process user's requests.
+ * 
+ * @author Dash Wong dashengyeah@github
+ *
+ */
 @SuppressWarnings("unchecked")
 public class UserAction extends ActionSupport implements ModelDriven<Book>,SessionAware{
 	/**
@@ -29,19 +36,36 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * struts2 return data stream
+	 */
 	private InputStream inputStream;
 	
+	/**
+	 * database connection
+	 */
 	private Connection conn = null;
 	
+	/**
+	 * HTTP session info
+	 */
 	private SessionMap<String,Object> session;
 	
 	/**
-	 * receiving data.
+	 * Receiving data from client.<br>
+	 * this is set by {@link com.opensymphony.xwork2.ModelDriven}
 	 */
 	private Book book = new Book();
 	
+	/**
+	 * result data JSONObject
+	 */
 	private JSONObject result = new JSONObject();
 	
+	/**
+	 * Get user's base information
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String userinfo() {
 		result.clear();
 		System.out.print("[MSG] userinfo: ");
@@ -73,6 +97,10 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 	    return SUCCESS;
 	}
 	
+	/**
+	 * Get a list of books that the current user is borrowing.
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String rentingList() {
 		result.clear();
 		System.out.print("[MSG] rentlist: ");
@@ -110,7 +138,12 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 		inputStream = new ByteArrayInputStream(re.getBytes(StandardCharsets.UTF_8));
 	    return SUCCESS;
 	}
-
+	
+	/**
+	 * Borrow a book.
+	 * parameter bookid is in {@link #book}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String rent() {
 		result.clear();
 		System.out.print("[MSG] rent: ");
@@ -161,6 +194,11 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 	    return SUCCESS;
 	}
 	
+	/**
+	 * Return a book.
+	 * parameter bookid is in {@link #book}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String restore() {
 		result.clear();
 		System.out.print("[MSG] restore: ");
@@ -202,7 +240,8 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 			
 			Double cost;
 			Double costrate = Double.parseDouble(BookMgr.getConfig("costrate"));
-			if(days > BookMgr.MAX_RENTING_DAYS) cost = (days-30)*costrate*rs.getDouble("price");
+			Integer maxdays = Integer.parseInt(BookMgr.getConfig("maxdays"));
+			if(days > maxdays) cost = (days-30)*costrate*rs.getDouble("price");
 			else cost = 0.0;
 			
 			sql = "update copies set username=NULL,rentdate=NULL where"+
@@ -225,6 +264,11 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 		return SUCCESS;
 	}
 	
+	/**
+	 * Search a book.
+	 * parameter name is in {@link #book}
+	 * @return Always <code>SUCCESS</code>
+	 */
 	public String searchBook() {
 		result.clear();
 		System.out.print("[MSG] search: ");
@@ -246,6 +290,10 @@ public class UserAction extends ActionSupport implements ModelDriven<Book>,Sessi
 		session = (SessionMap<String, Object>)sess;
 	}
 	
+	/**
+	 * 
+	 * @return result stream to struts framework
+	 */
 	public InputStream getInputStream() {
 	    return inputStream;
 	}
