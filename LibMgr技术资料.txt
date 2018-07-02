@@ -1,0 +1,58 @@
+运行环境：
+	服务端操作系统：Microsoft Windows 10 64bit 家庭中文版 1709
+	服务端：Apache Tomcat v8.5
+	JDK：Java(TM) SE Runtime Environment (build 1.8.0_25-b18)
+	数据库：MySQL version: 5.7.18-log MySQL Community Server (GPL)
+	浏览器：Google Chrome Ver 65.0.3325.181（正式版本）（64 位）
+
+平台约束：
+	服务端操作系统：Microsoft Windows XP/7/8/10/server 20* or UNIX/UNIX Like System(Linux Destribution, MacOS, etc.)
+	JDK：Java Standard Edition Runtime Environment (JRE) version 7 or later
+	Apache Tomcat: Version >= 8
+
+开发环境：
+	MVC框架：apache struts-2.5.16
+	连接数据库：mysql-connector-java-5.1.46
+	Eclipse Java EE IDE for Web Developers：
+		Version: Oxygen.3a Release (4.7.3a)
+		Build id: 20180405-1200
+	其他：jQuery JavaScript Library v1.9.1
+
+代码相关：
+life.dashyeah.LibMgr.
+	|
+	|--DBConn.java 数据库连接
+	|--Login.java 登录认证、注销登录
+	|--Redirecter.java 登陆后页面重定向（依据登录身份）
+	|--UserAction.java 用户操作（查询、借书、还书、个人信息）
+	|--BookMgr.java 书籍相关辅助操作
+	|--UserAdmin.java 用户管理（增加、删除）
+	|--BookAdmin.java 书籍管理（增加、删除）
+	|--ConfigAdmin.java 系统设置管理（最大借书数量、最大借书期限、超期惩罚金比例）
+	|
+	|--Interceptor.
+	|	|
+	|	|--LoginChecker.java 登录检查
+	|	|--AdminChecker.java 管理员身份检查
+	|
+	|--Data.
+	 	|
+	 	|--Book.java 书籍数据封装
+	 	|--User.java 用户数据封装
+	 	|--Config.java 配置数据封装
+	 	|--Role.java 系统角色数据定义
+
+测试相关：
+	伪数据生成：使用Python3 Script进行数据添加
+	Data/
+	|
+	|--connectDB.py 数据连接器
+	|--initDB.py 数据库初始化
+	|--sqlcmds.py SQL语句
+	|--fakeData.py 伪数据插入
+	|--NamePicker.py 人物信息生成器
+	|--tsinghuaLibscrap.py 书籍信息预处理器
+	|--Books.txt 书籍列表（由书籍信息预处理器生成）
+	|--firstnames.txt 名字列表（为人物信息提供名字）
+	|--baijiaxing.txt 百家姓（为人物信息提供姓氏）
+	|--tmp.txt 书籍信息HTML源文档（来源：www.lib.tsinghua.edu.cn/top/index.html）
